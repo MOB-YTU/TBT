@@ -5,7 +5,7 @@ from commands.main_commands import about_bot, about_union, help
 from commands.service_commands import ser_FAQ, ser_outside, ser_study, ser_uni_system, services
 import os
 import logging
-from telegram.ext import Updater, CommandHandler, MessageHandler, Filters, CallbackQueryHandler, CallbackContext
+from telegram.ext import Updater, CommandHandler, MessageHandler, CallbackQueryHandler, CallbackContext
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup, KeyboardButton, ReplyKeyboardMarkup, Update
 
 from data.Messages import *
@@ -38,25 +38,36 @@ def start(update: Update, context: CallbackContext):
 
 def button_callback(update: Update, context: CallbackContext):
     query = update.callback_query
+    call_back_dict = {
+        'help': help,
+        'about_bot': about_bot,
+        'services': services,
+        'abot_union': about_union,
+        'outside': ser_outside,
+        'uni_system': ser_uni_system,
+        'study': ser_study,
+        'FAQ': ser_FAQ
+    }
 
     # Handle the specific command based on callback data
-    if query.data == 'help':
-        help(update,context)
-    elif query.data == 'about_bot':
-        about_bot(update,context)
-    elif query.data == 'services':
-        services(update,context)
-    elif query.data == 'abot_union':
-        about_union(update,context)
+    call_back_dict[query.data](update, context)
+    # if query.data == 'help':
+    #     help(update,context)
+    # elif query.data == 'about_bot':
+    #     about_bot(update,context)
+    # elif query.data == 'services':
+    #     services(update,context)
+    # elif query.data == 'abot_union':
+    #     about_union(update,context)
     
-    elif query.data == 'outside':
-        ser_outside(update,context)
-    elif query.data == 'uni_system':
-        ser_uni_system(update,context)
-    elif query.data == 'study':
-        ser_study(update,context)
-    elif query.data == 'FAQ':
-        ser_FAQ(update,context)
+    # elif query.data == 'outside':
+    #     ser_outside(update,context)
+    # elif query.data == 'uni_system':
+    #     ser_uni_system(update,context)
+    # elif query.data == 'study':
+    #     ser_study(update,context)
+    # elif query.data == 'FAQ':
+    #     ser_FAQ(update,context)
 
 callback_handler = CallbackQueryHandler(button_callback)
 dispatcher.add_handler(callback_handler)
