@@ -78,8 +78,12 @@ command_func = { # main commands
     'help': help,
     'about': about_bot
 }
-for k in command_func:
-    handler = CommandHandler(k, command_func[k])
+# for k in command_func:
+#     handler = CommandHandler(k, command_func[k])
+#     dispatcher.add_handler(handler)
+
+for k, v in command_func.items():
+    handler = CommandHandler(k, v)
     dispatcher.add_handler(handler)
 
 # Start the bot
