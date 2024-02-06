@@ -13,7 +13,7 @@ from data.Messages import *
 
 # Enable logging
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-                    level=logging.INFO)
+                    level=logging.DEBUG)
 
 # Define your bot token
 TOKEN = os.getenv('BOT_TOKEN', '5978309881:AAFXZe5x_GLL2xz-BEHzPR-J5QAECXuQZ9A')
