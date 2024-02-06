@@ -16,7 +16,7 @@ logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s
                     level=logging.INFO)
 
 # Define your bot token
-TOKEN = os.getenv('bot_token', '5978309881:AAFXZe5x_GLL2xz-BEHzPR-J5QAECXuQZ9A')
+TOKEN = os.getenv('BOT_TOKEN', '5978309881:AAFXZe5x_GLL2xz-BEHzPR-J5QAECXuQZ9A')
 
 # Initialize the updater and dispatcher
 updater = Updater(TOKEN, use_context=True)

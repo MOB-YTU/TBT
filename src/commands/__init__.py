@@ -1,7 +1,7 @@
 import requests
 import os
 
-bot_token = os.getenv("bot_token")
+bot_token = os.getenv("BOT_TOKEN")
 def update_bot_commands(bot_token, commands):
     """
     Update the list of commands for a Telegram bot using the Telegram Bot API.
