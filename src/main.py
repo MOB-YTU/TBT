@@ -1,12 +1,12 @@
 from dotenv import load_dotenv
 load_dotenv()
-from commands.main_commands import about_bot, about_union, help
-
-from commands.service_commands import ser_FAQ, ser_outside, ser_study, ser_uni_system, services
 import os
 import logging
 from telegram.ext import Updater, CommandHandler, MessageHandler, CallbackQueryHandler, CallbackContext
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup, KeyboardButton, ReplyKeyboardMarkup, Update
+
+from commands.main_commands import about_bot, about_union, help
+from commands.service_commands import ser_FAQ, ser_outside, ser_study, ser_uni_system, services
 
 from data.Messages import *
 
