@@ -9,7 +9,6 @@ def services(update: Update, context: CallbackContext):
         [InlineKeyboardButton("النظام الجامعي", callback_data="uni_system")],
         [InlineKeyboardButton("معلومات دراسية", callback_data="study")],
         [InlineKeyboardButton("الأسئلة الشائعة", callback_data="FAQ")],
-        # [InlineKeyboardButton("", callback_data="services")]
 
     ]
     context.bot.send_message(chat_id=update.effective_chat.id, reply_markup=InlineKeyboardMarkup(buttons), text="قائمة الخدمات")
