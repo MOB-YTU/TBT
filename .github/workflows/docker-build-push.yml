@@ -6,7 +6,7 @@ on:
       - Dev
 
 env:
-  IMAGE_NAME: MOB_YTU/tbt
+  IMAGE_NAME: mob_ytu/tbt
   DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
   DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
 
