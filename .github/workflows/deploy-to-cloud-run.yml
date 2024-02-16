@@ -7,7 +7,7 @@ on:
 
 env:
   PROJECT_ID: deployment-test-414315
-  SERVICE_NAME: TBT
+  SERVICE_NAME: tbt
   REGION: europe-west9
   IMAGE_NAME: gcr.io/$PROJECT_ID/$SERVICE_NAME
   TAG: latest
