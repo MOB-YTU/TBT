@@ -22,7 +22,7 @@ TOKEN = os.getenv('BOT_TOKEN', '5978309881:AAFXZe5x_GLL2xz-BEHzPR-J5QAECXuQZ9A')
 updater = Updater(TOKEN, use_context=True)
 dispatcher = updater.dispatcher
 
-# Define command handlers
+# Define start command handlers
 def start(update: Update, context: CallbackContext):
     context.bot.send_message(chat_id=update.effective_chat.id, text=welcome_message)
 
@@ -35,7 +35,7 @@ def start(update: Update, context: CallbackContext):
     ]
     context.bot.send_message(chat_id=update.effective_chat.id, reply_markup=InlineKeyboardMarkup(buttons), text="<================= اختر من القائمة الآتية👇 ==================>")
 
-
+# Define callback handler
 def button_callback(update: Update, context: CallbackContext):
     query = update.callback_query
     call_back_dict = {
@@ -69,25 +69,29 @@ def button_callback(update: Update, context: CallbackContext):
     # elif query.data == 'FAQ':
     #     ser_FAQ(update,context)
 
-callback_handler = CallbackQueryHandler(button_callback)
-dispatcher.add_handler(callback_handler)
+def main():
+    callback_handler = CallbackQueryHandler(button_callback)
+    dispatcher.add_handler(callback_handler)
 
-# Command Handlers
-command_func = { # main commands
-    'start': start,
-    'help': help,
-    'about': about_bot
-}
-# for k in command_func:
-#     handler = CommandHandler(k, command_func[k])
-#     dispatcher.add_handler(handler)
+    # Command Handlers
+    command_func = { # main commands
+        'start': start,
+        'help': help,
+        'about': about_bot
+    }
+    # for k in command_func:
+    #     handler = CommandHandler(k, command_func[k])
+    #     dispatcher.add_handler(handler)
 
-for k, v in command_func.items():
-    handler = CommandHandler(k, v)
-    dispatcher.add_handler(handler)
+    for k, v in command_func.items():
+        handler = CommandHandler(k, v)
+        dispatcher.add_handler(handler)
 
-# Start the bot
-updater.start_polling()
+    # Start the bot
+    updater.start_polling()
 
-# Run the bot until you press Ctrl-C to stop it
-updater.idle()
+    # Run the bot until you press Ctrl-C to stop it
+    updater.idle()
+
+if __name__ == '__main__':
+    main()
