@@ -18,7 +18,7 @@ welcome_message = """
 """
 
 help_message = """
-help #TODO
+help #TODO update this message
 
 """
 
