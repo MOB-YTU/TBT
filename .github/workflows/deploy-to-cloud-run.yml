@@ -3,7 +3,7 @@ name: Deploy to Cloud Run
 on:
   push:
     branches:
-      - main
+      - Dev
 
 env:
   PROJECT_ID: deployment-test-414315
