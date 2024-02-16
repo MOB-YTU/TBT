@@ -9,7 +9,7 @@ env:
   PROJECT_ID: deployment-test-414315
   SERVICE_NAME: tbt
   REGION: europe-west9
-  IMAGE_NAME: gcr.io/$PROJECT_ID/$SERVICE_NAME
+  IMAGE_NAME: gcr.io/deployment-test-414315/tbt
   TAG: latest
 
 jobs:
