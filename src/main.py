@@ -4,6 +4,7 @@ import os
 import logging
 from telegram.ext import Updater, CommandHandler, MessageHandler, CallbackQueryHandler, CallbackContext
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup, KeyboardButton, ReplyKeyboardMarkup, Update
+from flask import Flask, request
 
 from commands.main_commands import about_bot, about_union, help
 from commands.service_commands import ser_FAQ, ser_outside, ser_study, ser_uni_system, services
@@ -93,5 +94,14 @@ def main():
     # Run the bot until you press Ctrl-C to stop it
     updater.idle()
 
+app = Flask(__name__)
+
+# Set up a basic route to handle incoming requests from Cloud Run
+@app.route('/', methods=['POST'])
+def webhook():
+    json_data = request.get_json()
+    return '', 200
+
 if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 8080)))
     main()
